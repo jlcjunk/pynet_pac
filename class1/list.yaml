@@ -1,0 +1,9 @@
+---
+- text1
+- 3.14159
+- router.ip: 192.168.1.1
+  router.model: Cisco2811
+  router.uptime: '654'
+  switch.ip: 192.168.2.1
+  switch.model: '3750'
+- lemon
