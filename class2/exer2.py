@@ -28,12 +28,12 @@ device_output = device_connection.read_very_eager()
 device_connection.read_until(DEVICE_PASSWORD_PROMPT)
 time.sleep(1)
 device_connection.write(DEVICE_PASSWORD + '\n')
-device_output = device_connection.unti(COMMAND_PROMPT)
+device_output = device_connection.until(COMMAND_PROMPT)
 
 # execute command
 device_output = device_connection.read_very_eager()
 device_connection.write(COMMAND + '\n')
-device_output = device_connection.unti(COMMAND_PROMPT)
+device_output = device_connection.until(COMMAND_PROMPT)
 
 # close connection
 device_connection.close()
