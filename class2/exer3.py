@@ -67,7 +67,8 @@ def main():
     username = 'pyclass'
     password = '88'
 
-    remote_conn = MyTelnet.telnet_connect(ip_addr)
+    remote_conn = MyTelnet()
+    remote_conn.telnet_connect(ip_addr)
     #remote_conn.login(username, password)
 
     time.sleep(1)
