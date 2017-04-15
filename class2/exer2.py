@@ -39,5 +39,6 @@ device_output = device_connection.read_until(COMMAND_PROMPT)
 device_connection.close()
 
 # output results of command
+print '\n\n'
 print device_output
-
+print '\n\n'
