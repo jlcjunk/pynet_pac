@@ -62,23 +62,25 @@ def main():
     Write a script that connects to the lab pynet-rtr1, logins, and executes the
     'show ip int brief' command.
     '''
-    ip_addr = raw_input("IP address: ")
+    ip_addr = '184.105.247.70'
+    #ip_addr = raw_input("IP address: ")
     ip_addr = ip_addr.strip()
     username = 'pyclass'
-    password = '88'
+    password = '88newclass'
+    #password = getpass.getpass()
 
     remote_conn = MyTelnet()
     remote_conn.telnet_connect(ip_addr)
-    #remote_conn.login(username, password)
+    remote_conn.login(username, password)
 
     time.sleep(1)
-    #remote_conn.read_very_eager()
+    output = remote_conn.read_very_eager()
     #disable_paging(remote_conn)
 
     #output = send_command(remote_conn, 'show ip int brief')
 
     print "\n\n"
-    #print output
+    print output
     print "\n\n"
 
     remote_conn.close()
