@@ -74,7 +74,7 @@ def main():
     remote_conn.login(username, password)
 
     time.sleep(1)
-    output = remote_conn.read_very_eager()
+    #output = remote_conn.read_very_eager()
     #disable_paging(remote_conn)
 
     #output = send_command(remote_conn, 'show ip int brief')
