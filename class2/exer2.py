@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
+'''
+simple telnet demo
+'''
+
 # imports
-import pysnmp
-import paramiko
-import sys
 import telnetlib
 import time
 
@@ -20,7 +21,7 @@ COMMAND_PROMPT = '#'
 COMMAND = 'show ip int brief'
 
 # connect
-device_connection = telnetlib.Telnet(DEVICE_IP,DEVICE_PORT,CON_TIMEOUT)
+device_connection = telnetlib.Telnet(DEVICE_IP, DEVICE_PORT, CON_TIMEOUT)
 device_connection.read_until(DEVICE_USER_PROMPT)
 time.sleep(1)
 device_connection.write(DEVICE_USER + '\n')

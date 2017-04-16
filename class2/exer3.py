@@ -65,12 +65,14 @@ def main():
     '''
 
 
-    ip_addr = '184.105.247.70'
-    #ip_addr = raw_input("IP address: ")
+    #ip_addr = '184.105.247.70'
+    ip_addr = raw_input("IP address: ")
     ip_addr = ip_addr.strip()
-    username = 'pyclass'
-    password = '88newclass'
-    #password = getpass.getpass()
+    #username = 'pyclass'
+    username = raw_input("Username: ")
+    username = username.strip()
+    #password = '88newclass'
+    password = getpass.getpass()
 
     remote_conn = MyTelnet()
 

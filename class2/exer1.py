@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
+'''
+Demo of module importing - importing a module from 3 different locations
+'''
+
 # imports
+import sys
 import pysnmp
 import paramiko
-import sys
 
 # Part B answer - not sure it's needed
 print "\n\n"
@@ -22,4 +26,3 @@ hello_r.hello()
 
 import hello_sp
 hello_sp.hello()
-
