@@ -5,14 +5,13 @@
  c. Create a script that connects to both routers (pynet-rtr1 and pynet-rtr2) and prints out both the MIB2 sysName and sysDescr.
 '''
 
-import sys
-sys.path.append('~/git/pynet/snmp/')
-import textwrap        #pylint: disable=wrong-import-position
-import snmp_helper     #pylint: disable=wrong-import-position
 
-OID_NAME = '.1.3.6.1.2.1.1.5.0'
-OID_DESCRIPTION = '.1.3.6.1.2.1.1.1.0'
+# updated PYTHONPATH for snmp_helper
+import textwrap
+import snmp_helper
+
 SNMP_PORT = 161
+LINE_WIDTH = 100
 
 # List of OIDs to get in form of ['OID Title', 'OID']
 OID_LIST = [
@@ -35,18 +34,18 @@ def main():
 
     # read Rtore quested OIDs
     for device_in_list in device_list:
-        for oid_in_list in OID_LIST:
-            device_in_list[oid_in_list[0]] = snmp_helper.snmp_extract(snmp_helper.snmp_get_oid((device_in_list['ip'], device_in_list['community'], SNMP_PORT), oid=oid_in_list[1], display_errors=False))
+        for oid_name, oid_value in OID_LIST:
+            device_in_list[oid_name] = snmp_helper.snmp_extract(snmp_helper.snmp_get_oid((device_in_list['ip'], device_in_list['community'], SNMP_PORT), oid=oid_value, display_errors=False))
 
     # display data
-    print '\r\n\r\n\r\n\r\n-------------------------------------------------------'
+    print '\n\n\n\n' + '-' * LINE_WIDTH
     for device_in_list in device_list:
         print ' '
         print 'Device IP: ' + device_in_list['ip']
-        for oid_in_list in OID_LIST:
-            print textwrap.fill('    ' + oid_in_list[0] + ':  ' + device_in_list[oid_in_list[0]], width=120, subsequent_indent=' '*(len('    ' + oid_in_list[0] + ':  ')))
+        for oid_name, loopjunk in OID_LIST:               #pylint: disable=unused-variable
+            print textwrap.fill('    ' + oid_name + ':  ' + device_in_list[oid_name], width=LINE_WIDTH, subsequent_indent=' '*(len('    ' + oid_name + ':  ')))
         print ' '
-    print '-------------------------------------------------------\r\n\r\n\r\n\r\n'
+    print '-' * LINE_WIDTH + '\n\n\n\n'
 
 
 if __name__ == "__main__":
