@@ -77,14 +77,14 @@ def main():
     # graph collected data
     graph_octets = pygal.Line()
     graph_octets.title = 'Interface FA4 octets'
-    graph_octets.x_label = map(str,range(INTERVAL, DURATION + INTERVAL, INTERVAL))
+    graph_octets.x_labels = map(str,range(INTERVAL, DURATION + INTERVAL, INTERVAL))
     graph_octets.add('In', data_to_graph['In_Octets'])
     graph_octets.add('Out', data_to_graph['Out_Octets'])
     graph_octets.render_to_file('octets_' + RUN_REFERENCE + '.svg')
 
     graph_packets = pygal.Line()
     graph_packets.title = 'Interface FA4 packets'
-    graph_packets.x_label = map(str,range(INTERVAL, DURATION + INTERVAL, INTERVAL))
+    graph_packets.x_labels = map(str,range(INTERVAL, DURATION + INTERVAL, INTERVAL))
     graph_packets.add('In', data_to_graph['In_Packets'])
     graph_packets.add('Out', data_to_graph['Out_Packets'])
     graph_packets.render_to_file('packets_' + RUN_REFERENCE + '.svg')
