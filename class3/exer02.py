@@ -20,7 +20,7 @@ DURATION = 60     # how man minutes to keep recording data
 
 # to make time scaling for testinng easier
 # set to 60 to make INTERVAL & DURATION be inn minutes
-TIME_MULTIPLIER = 60
+TIME_MULTIPLIER = 2
 
 
 DEVICE_TO_MONITOR = '184.105.247.70'
