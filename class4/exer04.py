@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-demo retriving 'sh int br' from cisco router with pexpect
+pexpect demo that changes logging buffer size
 '''
 
 # imports
@@ -22,7 +22,7 @@ RTR_USER = 'pyclass'
 RTR_PASSWORD = '88newclass'
 TIMEOUT = 60
 
-
+NEW_BUFFER = str(((time.localtime()[3] * 60 + time.localtime()[4]) * 60) + time.localtime()[5] + 4096)
 
 
 def main():
@@ -44,13 +44,27 @@ def main():
     router.sendline('terminal length 0')
     router.expect('pynet-rtr2#')
 
-    # get 'sh ip int br'
-    router.sendline('sh ip int br')
-    router.expect('sh ip int br')
+    # verify current logging buffer
+    router.sendline('sh run | inc buffer')
+    router.expect('sh run \| inc buffer')
     router.expect('pynet-rtr2#')
     output = router.before
     print output
 
+    # change logging buffer
+    router.sendline('conf t')
+    router.expect('pynet-rtr2\(config\)#')
+    router.sendline('logg buff ' + NEW_BUFFER)
+    router.expect('pynet-rtr2\(config\)#')
+    router.sendline('end')
+    router.expect('pynet-rtr2#')
+
+    # verify new logging buffer
+    router.sendline('sh run | inc buffer')
+    router.expect('sh run \| inc buffer')
+    router.expect('pynet-rtr2#')
+    output = router.before
+    print output
 
 
 if __name__ == "__main__":
