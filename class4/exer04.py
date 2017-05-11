@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-pexpect demo that changes logging buffer size
+pexpect demo that changes logging buffer size.
 '''
 
 # imports

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-demo retriving 'sh int br' from cisco router with pexpect
+demo retriving 'sh int br' from cisco router with pexpect.
 '''
 
 # imports

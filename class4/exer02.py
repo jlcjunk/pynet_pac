@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-demo change logging buffer in a cisco router with paramiko.
+demo change logging buffer in a cisco router with paramiko. 
 '''
 
 # imports

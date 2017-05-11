@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-pexpect demo using netmiko to change
+pexpect demo using netmiko to change 
 '''
 
 # imports

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-pexpect demo using netmiko to enter config mode
+pexpect demo using netmiko to enter config mode.
 '''
 
 # imports

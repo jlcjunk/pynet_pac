@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-pexpect demo using netmiko to get 'show arp'
+pexpect demo using netmiko to get 'show arp' 
 '''
 
 # imports
