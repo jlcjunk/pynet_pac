@@ -1,0 +1,2 @@
+logg buff 303030
+no logg console
