@@ -1,0 +1,32 @@
+---
+rtr1:
+  access_vlan: '666'
+  default_gateway: 10.10.11.254
+  ip_addr: 10.10.11.1
+  secret: enable_me
+  snmp_community: read_me
+rtr2:
+  access_vlan: '666'
+  default_gateway: 10.10.12.254
+  ip_addr: 10.10.12.1
+  secret: enable_me
+  snmp_community: read_me
+rtr3:
+  access_vlan: '666'
+  default_gateway: 10.10.13.254
+  ip_addr: 10.10.13.1
+  secret: enable_me
+  snmp_community: read_me
+rtr4:
+  access_vlan: '666'
+  default_gateway: 10.10.14.254
+  ip_addr: 10.10.14.1
+  secret: enable_me
+  snmp_community: read_me
+rtr5:
+  access_vlan: '666'
+  default_gateway: 10.10.15.254
+  ip_addr: 10.10.15.1
+  secret: enable_me
+  snmp_community: read_me
+

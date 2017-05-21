@@ -1,0 +1,14 @@
+---
+- hosts: local 
+  tasks:
+      - name: do something anything
+        template: 
+            src=/home/jcrabtree/git/pynet_pac/class5/exer02_access_switch.j2
+            dest=/home/jcrabtree/git/pynet_pac/class5/exer02_{{ item.hostname }}.config
+        with_items:
+            - { hostname: 'dummy_sw1', secret: 'enable_me', access_vlan: '666', ip_addr: '10.10.11.1', default_gateway: '10.10.11.254', snmp_community: 'read_me', snmpv3: 'True' }
+            - { hostname: 'dummy_sw2', secret: 'enable_me', access_vlan: '666', ip_addr: '10.10.12.1', default_gateway: '10.10.12.254', snmp_community: 'read_me', snmpv3: 'False' }
+            - { hostname: 'dummy_sw3', secret: 'enable_me', access_vlan: '666', ip_addr: '10.10.13.1', default_gateway: '10.10.13.254', snmp_community: 'read_me', snmpv3: 'False' }
+            - { hostname: 'dummy_sw4', secret: 'enable_me', access_vlan: '666', ip_addr: '10.10.14.1', default_gateway: '10.10.14.254', snmp_community: 'read_me', snmpv3: 'False' }
+            - { hostname: 'dummy_sw5', secret: 'enable_me', access_vlan: '666', ip_addr: '10.10.15.1', default_gateway: '10.10.15.254', snmp_community: 'read_me', snmpv3: 'False' }
+
