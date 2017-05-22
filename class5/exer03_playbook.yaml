@@ -1,8 +1,8 @@
 ---
-- hosts: local 
+- hosts: local
   tasks:
       - name: do something anything
-        template: 
+        template:
             src=/home/jcrabtree/git/pynet_pac/class5/exer03_access_switch.j2
             dest=/home/jcrabtree/git/pynet_pac/class5/exer03_{{ item.hostname }}.config
         with_items:

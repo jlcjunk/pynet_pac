@@ -1,0 +1,7 @@
+---
+- hosts: arista
+
+  tasks:
+        - name: get switch info/ prov connectivity
+          eos_command:
+            commands='show version, show hostname'
