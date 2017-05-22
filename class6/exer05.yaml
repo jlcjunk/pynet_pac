@@ -1,0 +1,17 @@
+---
+- hosts: pynet-rtr1
+
+  tasks:
+        - name: send tiny file to router
+          cisco_file_transfer:
+            host={{ host }}
+            port={{ port }}
+            username={{ username }}
+            password={{ password }}
+
+            source_file=jc.txt
+            dest_file=jc.txt
+
+            enable_scp=false
+            overwrite=true
+            

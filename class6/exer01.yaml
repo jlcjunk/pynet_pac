@@ -4,11 +4,14 @@
   tasks:
         - name: add vlans to arista lab switches
           eos_vlan:
-            vlanid=888
-            name='test vlan'
-#            vlanid={{ item.vlan_id }}
-#            name={{ item.vlan_name }}
-#          with_items:
-#            - { vlan_id: 843, vlan_name: 'named_843' }
-#            - { vlan_id: 844, vlan_name: 'named_844' }
-#            - { vlan_id: 845, vlan_name: 'named_845' }
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            transport='https'
+            port={{ eapi_port }}
+            vlanid={{ item.vlan_id }}
+            name={{ item.vlan_name }}
+          with_items:
+            - { vlan_id: 843, vlan_name: 'named_843' }
+            - { vlan_id: 844, vlan_name: 'named_844' }
+            - { vlan_id: 845, vlan_name: 'named_845' }

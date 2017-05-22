@@ -2,11 +2,17 @@
 - hosts: arista
 
   tasks:
-        - name: get switch info/ prov connectivity
-          eos_command:
-            commands='show version, show hostname'
+        - name: configure primary interface - vlan
+          eos_switchport:
             username={{ eapi_username }}
             password={{ eapi_password }}
             host={{ eapi_hostname }}
             transport='https'
             port={{ eapi_port }}
+
+            name=Ethernet5
+            mode=trunk
+            trunk_native_vlan=1
+            trunk_allowed_vlans=843,844,845
+
+

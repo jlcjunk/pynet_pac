@@ -1,0 +1,27 @@
+---
+- hosts: arista
+
+  tasks:
+        - name: configure primary interface - vlan
+          eos_switchport:
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            transport='https'
+            port={{ eapi_port }}
+
+            name=Ethernet5
+            mode=access
+            access_vlan=844
+
+
+        - name: configure primary interface - desc
+          eos_interface:
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            transport='https'
+            port={{ eapi_port }}
+
+            name=Ethernet5
+            description='*** IN USE ***'

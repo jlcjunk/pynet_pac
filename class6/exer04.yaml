@@ -1,0 +1,45 @@
+---
+- hosts: arista
+
+  tasks:
+        - name: configure primary interface - vlan
+          eos_switchport:
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            transport='https'
+            port={{ eapi_port }}
+
+            name=Ethernet5
+            mode=access
+            access_vlan=1
+            trunk_native_vlan=1
+            trunk_allowed_vlans=1-4094
+
+#--------------------------------------------------------------------------------
+        - name: configure primary interface - desc
+          eos_interface:
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            transport='https'
+            port={{ eapi_port }}
+
+            name=Ethernet5
+            description=
+
+#--------------------------------------------------------------------------------
+        - name: remove vlan {{ item.vlan_id }}
+          eos_vlan:       
+            username={{ eapi_username }}       
+            password={{ eapi_password }}       
+            host={{ eapi_hostname }}       
+            transport='https'       
+            port={{ eapi_port }}       
+            
+            vlanid={{ item.vlan_id }}
+            state=absent
+          with_items:       
+            - { vlan_id: 843, vlan_name: 'named_843' }       
+            - { vlan_id: 844, vlan_name: 'named_844' }       
+            - { vlan_id: 845, vlan_name: 'named_845' } 
