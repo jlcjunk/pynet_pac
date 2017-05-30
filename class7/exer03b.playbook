@@ -1,0 +1,23 @@
+---
+- hosts: arista
+
+  tasks:
+        - name: add vlans to arista lab switch
+          exer03:
+          
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            transport='https'
+            port={{ eapi_port }}
+            
+            action='add'
+            
+            vlanid={{ item.vlan_id }}
+            name={{ item.vlan_name }}
+            
+          with_items:
+            - { vlan_id: 775, vlan_name: 'named_775' }
+            - { vlan_id: 776, vlan_name: 'named_776' }
+            - { vlan_id: 777, vlan_name: 'named_777' }
+
